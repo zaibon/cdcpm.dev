@@ -22,18 +22,48 @@ export const skills: Skill[] = [
 		icon: 'fa-solid fa-database'
 	},
 	{
-		category: 'Tools & Technologies',
+		category: 'Devops',
+		name: 'Terraform',
+		icon: 'fas fa-wrench'
+	},
+	{
+		category: 'Devops',
 		name: 'Docker',
 		icon: 'fa-brands fa-docker'
 	},
 	{
-		category: 'Tools & Technologies',
+		category: 'Devops',
 		name: 'Kubernetes',
 		icon: 'fas fa-wrench'
 	},
 	{
-		category: 'Tools & Technologies',
+		category: 'Devops',
+		name: 'CI/CD',
+		icon: 'fas fa-wrench'
+	},
+	{
+		category: 'Devops',
+		name: 'Istio',
+		icon: 'fas fa-wrench'
+	},
+	{
+		category: 'Devops',
 		name: 'Git',
 		icon: 'fa-brands fa-git-alt'
+	},
+	{
+		category: 'System',
+		name: 'GNU/Linux',
+		icon: 'fa-brands fa-linux'
+	},
+	{
+		category: 'System',
+		name: 'Virtualization, KVM-QEMU',
+		icon: 'fas fa-wrench'
+	},
+	{
+		category: 'Cloud',
+		name: 'GCP',
+		icon: 'fa-brands fa-google'
 	}
 ];

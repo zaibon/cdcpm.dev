@@ -3,7 +3,7 @@ import { projects } from '$lib/data/projects';
 import { skills } from '$lib/data/skills';
 import { profile } from '$lib/data/profile';
 
-export const load = (({ params }) => {
+export const load = (() => {
 	return {
 		skills: skills,
 		projects: shuffle(projects).slice(0, 3),
