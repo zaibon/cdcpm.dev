@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { link } from '$lib/images';
+
 	export let data: PageData;
-	const image = data.project.image.startsWith('http')
-		? data.project.image
-		: `/images/${data.project.image}`;
+	const image = link(data.project.image);
 </script>
 
 <section class="section">
@@ -17,11 +17,13 @@
 
 		<h1 class="title">{data.project.title}</h1>
 		<div class="columns">
-			<div class="column is-one-third">
-				<figure class="image is-square m-auto">
-					<img src={image} alt="{data.project.title} image" />
-				</figure>
-			</div>
+			{#if image}
+				<div class="column is-one-third">
+					<figure class="image is-square m-auto">
+						<img src={image} alt="{data.project.title} image" />
+					</figure>
+				</div>
+			{/if}
 			<div class="column is-two-thirds">
 				<h2 class="subtitle">Description</h2>
 				<p class="content">{data.project.description}</p>
