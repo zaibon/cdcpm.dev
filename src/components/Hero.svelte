@@ -1,12 +1,30 @@
+<script lang="ts">
+	import type { Profile } from '$lib/types';
+	export let profile: Profile;
+</script>
+
 <section class="hero is-medium is-primary">
 	<div class="hero-body">
 		<div class="container">
-			<h1 class="title">Christophe de Carvalho Pereira Martins</h1>
-			<h2 class="subtitle">Software Engineer</h2>
+			<div class="is-flex is-flex-direction-row">
+				<figure class="image profile">
+					<img alt="profil" src="/images/profile.jpg" class="is-rounded" />
+				</figure>
+
+				<h1 class="title">{profile.firstName}<br />{profile.lastName}</h1>
+			</div>
+			<h2 class="title">{profile.title}</h2>
 			<p>
-				Brief introduction about yourself, your skills, and your experience. You can mention your
-				focus areas, programming languages, and technologies you are proficient in.
+				{profile.introduction}
 			</p>
 		</div>
 	</div>
 </section>
+
+<style>
+	.profile {
+		width: 200px;
+		height: 200px;
+		margin-right: 2rem;
+	}
+</style>

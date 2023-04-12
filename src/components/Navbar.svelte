@@ -6,9 +6,9 @@
 	}
 </script>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" aria-label="main navigation">
 	<div class="navbar-brand">
-		<a class="navbar-item" href="/"> Your Name </a>
+		<a class="navbar-item" href="/"> About me </a>
 
 		<button
 			class="navbar-burger"
@@ -24,7 +24,6 @@
 
 	<div id="navbarBasicExample" class="navbar-menu" class:is-active={isMenuActive}>
 		<div class="navbar-start">
-			<a class="navbar-item" href="/"> Home </a>
 			<a class="navbar-item" href="/resume"> Resume </a>
 			<a class="navbar-item" href="/projects"> Projects </a>
 			<a class="navbar-item" href="/contact"> Contact </a>

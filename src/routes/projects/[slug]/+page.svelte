@@ -1,33 +1,38 @@
-<script>
-	// Replace with the actual project information
-	let project = {
-		title: 'Project 1',
-		description: 'Detailed description of Project 1...',
-		image: 'path/to/project1-image.jpg',
-		github: 'https://github.com/username/project1',
-		demo: 'https://project1-demo.com'
-	};
+<script lang="ts">
+	import type { PageData } from './$types';
+	export let data: PageData;
+	const image = data.project.image.startsWith('http')
+		? data.project.image
+		: `/images/${data.project.image}`;
 </script>
 
 <section class="section">
 	<div class="container">
-		<h1 class="title">{project.title}</h1>
+		<nav class="breadcrumb" aria-label="breadcrumbs">
+			<ul>
+				<li><a href="/projects">Projects</a></li>
+				<li class="is-active"><a href="#" aria-current="page">{data.project.title}</a></li>
+			</ul>
+		</nav>
+
+		<h1 class="title">{data.project.title}</h1>
 		<div class="columns">
-			<div class="column is-two-thirds">
-				<figure class="image is-16by9">
-					<img src={project.image} alt="{project.title} image" />
+			<div class="column is-one-third">
+				<figure class="image is-square m-auto">
+					<img src={image} alt="{data.project.title} image" />
 				</figure>
 			</div>
-			<div class="column">
+			<div class="column is-two-thirds">
 				<h2 class="subtitle">Description</h2>
-				<p class="content">{project.description}</p>
+				<p class="content">{data.project.description}</p>
 				<h2 class="subtitle">Links</h2>
-				<p>
-					<a href={project.github} target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-				</p>
-				<p>
-					<a href={project.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>
-				</p>
+				{#each data.project.links as link}
+					<p>
+						<a href={link.target} alt={link.name} target="_blank" rel="noopener noreferrer"
+							>{link.name}</a
+						>
+					</p>
+				{/each}
 			</div>
 		</div>
 	</div>

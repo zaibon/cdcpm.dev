@@ -13,7 +13,7 @@
 				target="_blank"
 				rel="noopener noreferrer"><i class="fab fa-linkedin" /></a
 			>
-			<a href="mailto:youremail@example.com" class="icon"><i class="fas fa-envelope" /></a>
+			<a href="/contact" class="icon"><i class="fas fa-envelope" /></a>
 		</p>
 	</div>
 </footer>
