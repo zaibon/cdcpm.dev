@@ -1,8 +1,9 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import { link } from '$lib/images';
+	import type { PageData } from './$types';
+	export let data: PageData;
 
-	export let project: PageData;
+	const project = data;
 	const image = link(project.image);
 </script>
 
