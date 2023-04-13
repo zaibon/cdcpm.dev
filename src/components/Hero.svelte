@@ -3,7 +3,7 @@
 	export let profile: Profile;
 </script>
 
-<section class="hero is-medium is-primary">
+<section class="hero is-medium">
 	<div class="hero-body">
 		<div class="container">
 			<div class="is-flex is-flex-direction-row">
@@ -22,6 +22,9 @@
 </section>
 
 <style>
+	.hero {
+		background-image: linear-gradient(180deg, #ffffff8c, #a5c79b8c);
+	}
 	.profile {
 		width: 200px;
 		height: 200px;

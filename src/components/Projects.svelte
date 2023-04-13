@@ -16,3 +16,9 @@
 		</div>
 	</div>
 </section>
+
+<style>
+	.section {
+		background-image: linear-gradient(180deg, #a5c79b8c, #fafafa);
+	}
+</style>
