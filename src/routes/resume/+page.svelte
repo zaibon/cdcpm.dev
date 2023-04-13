@@ -37,7 +37,7 @@
 
 				<h2 class="subtitle">Skills</h2>
 				<div class="content">
-					{#each Object.entries(data.skills) as [title, items]}
+					{#each [...data.skills] as [title, items]}
 						<p class="subtitle">{title}</p>
 						<ul>
 							{#each items as item}

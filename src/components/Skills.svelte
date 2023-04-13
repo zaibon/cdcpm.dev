@@ -1,18 +1,11 @@
 <script lang="ts">
+	import { reduceSkills } from '$lib/map';
 	import type { Skill } from '$lib/types';
 
 	export let skills: Skill[];
 
 	const sortPerItems = (skills: Skill[]) => {
-		let data = new Map();
-		skills.forEach((skill) => {
-			if (data.has(skill.category)) {
-				data.get(skill.category).push(skill);
-			} else {
-				data.set(skill.category, [skill]);
-			}
-		});
-		return new Map([...data.entries()].sort((a, b) => b[1].length - a[1].length));
+		return new Map([...reduceSkills(skills).entries()].sort((a, b) => b[1].length - a[1].length));
 	};
 	const data = sortPerItems(skills);
 </script>

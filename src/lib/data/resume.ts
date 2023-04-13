@@ -1,4 +1,5 @@
 import { skills } from '$lib/data/skills';
+import { reduceSkills } from '$lib/map';
 
 export const resume = {
 	links: [
@@ -119,13 +120,5 @@ export const resume = {
 			issuer: 'Google'
 		}
 	],
-	skills: skills.reduce((acc, curr) => {
-		const { category, ...rest } = curr;
-		if (acc[category]) {
-			acc[category].push(rest);
-		} else {
-			acc[category] = [rest];
-		}
-		return acc;
-	}, {})
+	skills: reduceSkills(skills)
 };
