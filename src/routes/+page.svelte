@@ -7,6 +7,10 @@
 	import Skills from '../components/Skills.svelte';
 </script>
 
+<svelte:head>
+	<title>{data.headers.title} - About {data.profile.firstName} {data.profile.lastName}</title>
+</svelte:head>
+
 <Hero profile={data.profile} />
 <Skills skills={data.skills} />
 <Projects projects={data.projects} title="Featured projects" />

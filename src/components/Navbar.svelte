@@ -26,7 +26,7 @@
 		<div class="navbar-start">
 			<a class="navbar-item" href="/resume"> Resume </a>
 			<a class="navbar-item" href="/projects"> Projects </a>
-			<a class="navbar-item" href="/contact"> Contact </a>
+			<!-- <a class="navbar-item" href="/contact"> Contact </a> -->
 		</div>
 	</div>
 	<div class="navbar-end">

@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+	import type { PageData } from './$types';
+	export let data: PageData;
+
 	let name = '';
 	let email = '';
 	let message = '';
@@ -8,6 +11,10 @@
 		console.log({ name, email, message });
 	}
 </script>
+
+<svelte:head>
+	<title>{data.headers.title} - Contact form</title>
+</svelte:head>
 
 <section class="section">
 	<div class="container">

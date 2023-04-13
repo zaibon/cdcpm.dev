@@ -3,6 +3,10 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>{data.headers.title} - Resume / CV</title>
+</svelte:head>
+
 <section class="section">
 	<div class="container">
 		<h1 class="title">Resume</h1>
