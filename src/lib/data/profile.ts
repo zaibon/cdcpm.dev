@@ -1,7 +1,12 @@
+const yearsOfExperience = (): number => {
+	const now = new Date();
+	const start = new Date(2014, 11, 1);
+	return Math.abs(start.getFullYear() - now.getFullYear());
+};
+
 export const profile = {
 	title: 'Software engineer',
 	firstName: 'Christophe',
 	lastName: 'de Carvalho Pereira Martins',
-	introduction:
-		"I'm a software engineer with expertise in designing and implementing complex, distributed systems using Python, Go, and Vue.js. With experience as a technical lead and managing teams, I have contributed to projects such as Flycs and Zero-OS, as well as the development of the ThreefoldGrid. I possess strong leadership, communication, and problem-solving skills and am dedicated to delivering high-quality software solutions."
+	introduction: `Software Engineer with ${yearsOfExperience()} years of experience in designing and developing scalable and efficient software solutions across diverse industries.  I am passionate about leveraging technology to create innovative solutions that make a positive impact on the world.`
 };
