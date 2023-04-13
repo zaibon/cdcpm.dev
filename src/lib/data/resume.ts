@@ -1,5 +1,4 @@
-	import { skills } from '$lib/data/skills';
-
+import { skills } from '$lib/data/skills';
 
 export const resume = {
 	links: [
@@ -39,9 +38,20 @@ export const resume = {
 	],
 	experience: [
 		{
+			company: 'Archipelo',
+			start: 'October 2022',
+			end: 'now',
+			job: 'Senior Software Engineer',
+			description:
+				'Work on the development of an intelligent code provenance platform for software security',
+			responsibilities: [
+				'Empowering developers and organizations to understand the context of how their code is created so they can be more productive and build safer software'
+			]
+		},
+		{
 			company: 'Devoteam G Cloud',
 			start: 'November 2021',
-			end: '2022',
+			end: 'October 2022',
 			job: 'Technical Lead',
 			description:
 				'Team lead for Flycs, a data warehouse accelerator framework on the Google Cloud platform',
