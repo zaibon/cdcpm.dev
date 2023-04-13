@@ -3,23 +3,26 @@
 
 	export let skills: Skill[];
 
-	$: data = skills.reduce((acc, curr) => {
-		const { category, ...rest } = curr;
-		if (acc[category]) {
-			acc[category].push(rest);
-		} else {
-			acc[category] = [rest];
-		}
-		return acc;
-	}, {});
+	const sortPerItems = (skills: Skill[]) => {
+		let data = new Map();
+		skills.forEach((skill) => {
+			if (data.has(skill.category)) {
+				data.get(skill.category).push(skill);
+			} else {
+				data.set(skill.category, [skill]);
+			}
+		});
+		return new Map([...data.entries()].sort((a, b) => b[1].length - a[1].length));
+	};
+	const data = sortPerItems(skills);
 </script>
 
 <section class="section">
 	<div class="container">
 		<h3 class="title is-3">Skills</h3>
 		<div class="columns is-multiline">
-			{#each Object.entries(data) as [title, items]}
-				<div class="column is-one-third">
+			{#each [...data] as [title, items]}
+				<div class="column is-one-fifth">
 					<div class="box">
 						<h4 class="title is-4">{title}</h4>
 						<ul>
