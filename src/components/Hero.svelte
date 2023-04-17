@@ -28,9 +28,6 @@
 </section>
 
 <style>
-	.hero {
-		background-image: linear-gradient(180deg, #ffffff8c, #a5c79b8c);
-	}
 	.profile {
 		width: 200px;
 		height: 200px;
