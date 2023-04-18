@@ -1,0 +1,27 @@
+name: Lint and test
+
+on:
+  pull_request:
+    
+  push:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+      - run: pnpm install
+      - run: pnpm run check
+      - run: pnpm run build
+      
