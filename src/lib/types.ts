@@ -9,6 +9,7 @@ export interface Project {
 	description: string;
 	image?: string;
 	links: Link[];
+	stars: number;
 }
 
 export interface Link {
@@ -21,4 +22,10 @@ export interface Profile {
 	firstName: string;
 	lastName: string;
 	introduction: string;
+}
+export interface GithubRepo {
+	name: string;
+	description: string;
+	html_url: string;
+	stargazers_count: number;
 }

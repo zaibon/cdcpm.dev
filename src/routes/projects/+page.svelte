@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.headers.title} -List of projects</title>
+	<title>{data.headers.title} - List of projects</title>
 </svelte:head>
 
 <Projects projects={data.projects} />
