@@ -2,9 +2,8 @@ name: Lint and test
 
 on:
   pull_request:
-    
-  push:
 
+  push:
 
 jobs:
   build:
@@ -19,9 +18,8 @@ jobs:
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
       - run: pnpm install
       - run: pnpm run check
       - run: pnpm run build
-      
