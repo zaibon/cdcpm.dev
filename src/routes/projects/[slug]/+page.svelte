@@ -31,6 +31,7 @@
 				</div>
 			{/if}
 			<div class="column is-two-thirds">
+				<h2 class="subtitle">Description</h2>
 				<p class="content">{data.description}</p>
 				<h2 class="subtitle">Links</h2>
 				{#each data.links || [] as link}
