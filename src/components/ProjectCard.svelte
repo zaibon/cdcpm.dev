@@ -19,14 +19,30 @@
 			</div>
 		{/if}
 		<div class="card-content">
-			<h4 class="title is-4">{project.title}</h4>
+			<h4 class="title is-4">
+				{project.title}
+			</h4>
 			<p class="content">
 				{description}
 			</p>
 		</div>
 		<footer class="card-footer">
-			<a href={detail?.target} class="card-footer-item">GitHub</a>
+			<div class="card-footer-item">
+				<a href={detail?.target}>GitHub</a>
+				<span class="icon-text ml-5">
+					<span class="stars">{project.stars}</span>
+					<span class="icon is-small">
+						<i class="fas fa-star" />
+					</span>
+				</span>
+			</div>
 			<a href="/projects/{project.title}" class="card-footer-item">Details</a>
 		</footer>
 	</div>
 </div>
+
+<style>
+	.stars {
+		line-height: 1;
+	}
+</style>
