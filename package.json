@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^3.0.1",
-		"@sveltejs/kit": "^1.21.0",
+		"@sveltejs/kit": "^1.22.1",
 		"@typescript-eslint/eslint-plugin": "^5.60.1",
 		"@typescript-eslint/parser": "^5.60.1",
 		"bulma": "^0.9.4",
