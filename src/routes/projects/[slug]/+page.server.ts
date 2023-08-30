@@ -6,14 +6,14 @@ export const load = (async ({ params }): Promise<Project | undefined> => {
 	const repo = await GithubService.getUserRepository(params.slug);
 	return {
 		title: repo.name,
-		description: repo.description || "",
+		description: repo.description || '',
 		// image?: string,
 		links: [
 			{
 				name: 'Github',
-				target: repo.html_url,
-			},
+				target: repo.html_url
+			}
 		],
-		stars: repo.stargazers_count,
-	}
+		stars: repo.stargazers_count
+	};
 }) satisfies PageServerLoad;

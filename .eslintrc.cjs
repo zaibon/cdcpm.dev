@@ -22,8 +22,8 @@ module.exports = {
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 2020,
-		project: "tsconfig.json",
-    	extraFileExtensions: [".svelte"],
+		project: 'tsconfig.json',
+		extraFileExtensions: ['.svelte']
 	},
 	env: {
 		browser: true,
