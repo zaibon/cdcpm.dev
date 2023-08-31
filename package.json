@@ -11,8 +11,8 @@
 		"css-build": "node-sass --omit-source-map-url sass/custom-bulma.scss static/css/mystyles.css",
 		"css-watch": "pnpm run css-build -- --watch",
 		"test:unit": "vitest",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier  --write ."
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^3.0.3",
