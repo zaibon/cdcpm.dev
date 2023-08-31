@@ -10,7 +10,7 @@ const listUserRepositories = async (limit: number = 100): Promise<GithubRepo[]> 
 			Authorization: `Bearer ${token}`
 		}
 	});
-	return await resp.json();
+	return await handleError(resp);
 };
 
 const getUserRepository = async (name: string): Promise<GithubRepo> => {
@@ -20,7 +20,15 @@ const getUserRepository = async (name: string): Promise<GithubRepo> => {
 			Authorization: `Bearer ${token}`
 		}
 	});
-	return await resp.json();
+	return await handleError(resp);
+};
+
+const handleError = async (resp: Response): Promise<any> => {
+	const data = await resp.json();
+	if (resp.status != 200) {
+		throw new Error(data.message);
+	}
+	return data;
 };
 
 export default {
