@@ -8,15 +8,15 @@ export const load = (async () => {
 	const repositories = await GithubService.listUserRepositories(3);
 	const projects = repositories.map((repo: GithubRepo) => ({
 		title: repo.name,
-		description: repo.description || "",
+		description: repo.description || '',
 		// image?: string,
 		links: [
 			{
 				name: 'Github',
-				target: repo.html_url,
-			},
+				target: repo.html_url
+			}
 		],
-		stars: repo.stargazers_count,
+		stars: repo.stargazers_count
 	}));
 
 	return {
