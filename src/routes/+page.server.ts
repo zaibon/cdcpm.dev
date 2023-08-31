@@ -5,7 +5,14 @@ import type { GithubRepo } from '$lib/types';
 import GithubService from '$lib/services/github';
 
 export const load = (async () => {
-	const repositories = await GithubService.listUserRepositories(3);
+	let repositories: GithubRepo[] = [];
+	try {
+		repositories = await GithubService.listUserRepositories(3);
+	} catch (error) {
+		console.log(`error loading GitHub repository: ${error}`);
+		repositories = [];
+	}
+
 	const projects = repositories.map((repo: GithubRepo) => ({
 		title: repo.name,
 		description: repo.description || '',
