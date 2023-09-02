@@ -35,7 +35,12 @@
 				<h2 class="subtitle">Links</h2>
 				{#each data.links || [] as link}
 					<p>
-						<a href={link.target} target="_blank" rel="noopener noreferrer">{link.name}</a>
+						<a href={link.target} target="_blank" rel="noopener noreferrer">
+							<span class="icon is-medium" style="color:black">
+								<i class="fab fa-github"></i>
+							</span>
+							{link.name}
+						</a>
 					</p>
 				{/each}
 			</div>

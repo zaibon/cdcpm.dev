@@ -14,6 +14,7 @@ export const load = (async ({ params }): Promise<Project | undefined> => {
 				target: repo.html_url
 			}
 		],
+		updatedAt: Date.parse(repo.updated_at),
 		stars: repo.stargazers_count
 	};
 }) satisfies PageServerLoad;

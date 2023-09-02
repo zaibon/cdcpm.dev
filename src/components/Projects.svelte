@@ -16,3 +16,12 @@
 		</div>
 	</div>
 </section>
+
+<div class="columns is-mobile is-centered mt-3">
+	<button class="button is-large is-responsive is-rounded">
+		<span class="icon is-medium">
+			<i class="fab fa-github"></i>
+		</span>
+		<a href="https://github.com/zaibon" target="_blank">Explore all projects on Github</a>
+	</button>
+</div>

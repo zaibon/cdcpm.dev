@@ -9,6 +9,7 @@ export interface Project {
 	description: string;
 	image?: string;
 	links: Link[];
+	updatedAt: number;
 	stars: number;
 }
 
@@ -28,4 +29,5 @@ export interface GithubRepo {
 	description: string;
 	html_url: string;
 	stargazers_count: number;
+	updated_at: string;
 }
