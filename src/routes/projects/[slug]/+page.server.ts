@@ -4,17 +4,11 @@ import GithubService from '$lib/services/github';
 
 export const load = (async ({ params }): Promise<Project | undefined> => {
 	const repo = await GithubService.getUserRepository(params.slug);
+	const readme = await GithubService.getReadme(repo);
+
 	return {
-		title: repo.name,
-		description: repo.description || '',
-		// image?: string,
-		links: [
-			{
-				name: 'Github',
-				target: repo.html_url
-			}
-		],
+		repo: repo,
 		updatedAt: Date.parse(repo.updated_at),
-		stars: repo.stargazers_count
+		readme: readme,
 	};
 }) satisfies PageServerLoad;

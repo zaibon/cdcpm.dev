@@ -14,23 +14,14 @@ export const load = (async () => {
 	}
 
 	const projects = repositories.map((repo: GithubRepo): Project => ({
-		title: repo.name,
-		description: repo.description || '',
-		// image?: string,
-		links: [
-			{
-				name: 'Github',
-				target: repo.html_url
-			}
-		],
+		repo: repo,
 		updatedAt: Date.parse(repo.updated_at),
-		stars: repo.stargazers_count
 	}));
 	projects.sort((a, b) => {
-		if (a.stars == b.stars) {
+		if (a.repo.stargazers_count == b.repo.stargazers_count) {
 			return b.updatedAt - a.updatedAt
 		} else {
-			return b.stars - a.stars
+			return b.repo.stargazers_count - a.repo.stargazers_count
 		}
 	});
 
