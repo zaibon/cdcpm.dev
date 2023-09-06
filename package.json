@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@vercel/analytics": "^1.0.1"
+		"@vercel/analytics": "^1.0.1",
+		"svelte-markdown": "^0.4.0"
 	}
 }

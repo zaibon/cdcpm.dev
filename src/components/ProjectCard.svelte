@@ -1,26 +1,24 @@
 <script lang="ts">
 	import type { Project } from '$lib/types';
 	import { ellipses } from '$lib/strings';
-	import { link } from '$lib/images';
 
 	export let project: Project;
-	const detail = project.links.find((link) => link.name === 'Github');
-	let image = link(project.image);
-	const description = ellipses(project.description, 250);
+	let detail: { name: string; target: string };
+	let description: string;
+	$: {
+		detail = {
+			target: project.repo.html_url,
+			name: 'Home page'
+		};
+		description = ellipses(project.repo.description, 250);
+	}
 </script>
 
 <div class="column is-one-third">
 	<div class="card">
-		{#if image}
-			<div class="card-image">
-				<figure class="image is-4by3">
-					<img src={image} alt={project.title} />
-				</figure>
-			</div>
-		{/if}
 		<div class="card-content">
 			<h4 class="title is-4">
-				{project.title}
+				{project.repo.name}
 			</h4>
 			<p class="content">
 				{description}
@@ -30,13 +28,13 @@
 			<div class="card-footer-item">
 				<a href={detail?.target}>GitHub</a>
 				<span class="icon-text ml-5">
-					<span class="stars">{project.stars}</span>
+					<span class="stars">{project.repo.stargazers_count}</span>
 					<span class="icon is-small">
 						<i class="fas fa-star" />
 					</span>
 				</span>
 			</div>
-			<a href="/projects/{project.title}" class="card-footer-item">Details</a>
+			<a href="/projects/{project.repo.name}" class="card-footer-item">Details</a>
 		</footer>
 	</div>
 </div>
