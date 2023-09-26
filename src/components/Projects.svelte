@@ -1,9 +1,19 @@
 <script lang="ts">
 	import type { Project } from '$lib/types';
+	import { onMount } from 'svelte';
+
 	import ProjectCard from './ProjectCard.svelte';
+	import { fade } from 'svelte/transition';
 
 	export let title: string = 'Projects';
-	export let projects: Project[];
+	export let count: number;
+	let projects: Project[] = [];
+
+	async function loadProjects() {
+		const response = await fetch(`/projects?count=${count}`);
+		projects = (await response.json()) as Project[];
+	}
+	onMount(loadProjects);
 </script>
 
 <section class="section">
@@ -11,7 +21,9 @@
 		<h3 class="title is-3">{title}</h3>
 		<div class="columns is-multiline">
 			{#each projects as project}
-				<ProjectCard {project} />
+				<div class="column is-one-third" transition:fade>
+					<ProjectCard {project} />
+				</div>
 			{/each}
 		</div>
 	</div>
