@@ -13,15 +13,17 @@ export const load = (async () => {
 		repositories = [];
 	}
 
-	const projects = repositories.map((repo: GithubRepo): Project => ({
-		repo: repo,
-		updatedAt: Date.parse(repo.updated_at),
-	}));
+	const projects = repositories.map(
+		(repo: GithubRepo): Project => ({
+			repo: repo,
+			updatedAt: Date.parse(repo.updated_at)
+		})
+	);
 	projects.sort((a, b) => {
 		if (a.repo.stargazers_count == b.repo.stargazers_count) {
-			return b.updatedAt - a.updatedAt
+			return b.updatedAt - a.updatedAt;
 		} else {
-			return b.repo.stargazers_count - a.repo.stargazers_count
+			return b.repo.stargazers_count - a.repo.stargazers_count;
 		}
 	});
 
