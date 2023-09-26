@@ -9,6 +9,6 @@ export const load = (async ({ params }): Promise<Project | undefined> => {
 	return {
 		repo: repo,
 		updatedAt: Date.parse(repo.updated_at),
-		readme: readme,
+		readme: readme
 	};
 }) satisfies PageServerLoad;
