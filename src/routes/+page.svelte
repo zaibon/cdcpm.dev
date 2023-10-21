@@ -13,4 +13,4 @@
 
 <Hero profile={data.profile} />
 <Skills skills={data.skills} />
-<Projects projects={data.projects} title="Featured projects" />
+<Projects count={3} title="Featured projects" />
