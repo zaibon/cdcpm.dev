@@ -2,6 +2,9 @@
 	import Navbar from '../components/Navbar.svelte';
 	import Footer from '../components/Footer.svelte';
 	import { socialMeta as data } from '$lib/data/social';
+	import { preprarePageTransition } from '$lib/page-transition';
+
+	preprarePageTransition();
 </script>
 
 <svelte:head>

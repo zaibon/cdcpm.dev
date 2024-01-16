@@ -28,7 +28,7 @@
 
 		<div class="columns">
 			<div class="column is-10">
-				<p class="content">
+				<p class="content" style:--tag="d-project-{data.repo?.name}">
 					{#if data.readme}
 						<SvelteMarkdown source={data.readme} />
 					{:else}
@@ -52,7 +52,7 @@
 					<span class="icon-text is-large">
 						<i class="fas fa-star" />
 					</span>
-					<span>Star {data.repo?.stargazers_count}</span>
+					<span style:--tag="start-project-{data.repo?.name}">Star {data.repo?.stargazers_count}</span>
 				</p>
 				<p>
 					<span class="icon-text is-large">

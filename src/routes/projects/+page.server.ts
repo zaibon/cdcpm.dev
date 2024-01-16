@@ -1,15 +1,11 @@
+import github from '$lib/services/github';
 import type { GithubRepo, Project } from '$lib/types';
-import GithubService from '$lib/services/github';
-import { json } from '@sveltejs/kit';
+import type { PageServerLoad } from './projects/$types';
 
-export async function GET({ request }) {
-    const url = new URL(request.url)
-    const searchParams = new URLSearchParams(url.search);
-    const count = parseInt(searchParams.get('count') ?? '3');
-
+export const load = (async () => {
     let repositories: GithubRepo[] = [];
     try {
-        repositories = await GithubService.listUserRepositories(count);
+        repositories = await github.listUserRepositories(21);
     } catch (error) {
         console.log(`error loading GitHub repository: ${error}`);
         repositories = [];
@@ -29,6 +25,7 @@ export async function GET({ request }) {
         }
     });
 
-    return json(projects);
-}
-
+    return {
+        projects: projects,
+    };
+}) satisfies PageServerLoad;
