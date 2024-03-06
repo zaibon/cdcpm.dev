@@ -10,3 +10,10 @@ $warning: #f7dc6f;
 $danger: #e59866;
 
 @import '../node_modules/bulma/bulma.sass';
+
+/* Only do the FLIP-style animations when no reduced-motion preference */
+@media (prefers-reduced-motion: no-preference) {
+	[style*='--tag'] {
+		view-transition-name: var(--tag);
+	}
+}
