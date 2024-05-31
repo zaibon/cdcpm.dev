@@ -19,7 +19,7 @@
 		<h4 class="title is-4">
 			{project.repo.name}
 		</h4>
-		<p class="content">
+		<p class="content" style:--tag="d-project-{project.repo.name}">
 			{description}
 		</p>
 	</div>
@@ -27,7 +27,7 @@
 		<div class="card-footer-item">
 			<a href={detail?.target}>GitHub</a>
 			<span class="icon-text ml-5">
-				<span class="stars">{project.repo.stargazers_count}</span>
+				<span class="stars" style:--tag="start-project-{project.repo.name}">{project.repo.stargazers_count}</span>
 				<span class="icon is-small">
 					<i class="fas fa-star" />
 				</span>
