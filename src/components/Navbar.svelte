@@ -16,12 +16,7 @@
 	<div class="navbar-brand">
 		<a class="navbar-item is-tab" class:is-active={route == ''} href="/"> About me </a>
 
-		<button
-			class="navbar-burger"
-			data-target="navbarBasicExample"
-			on:click={toggleMenu}
-			class:is-active={isMenuActive}
-		>
+		<button class="navbar-burger" data-target="navbarBasicExample" on:click={toggleMenu} class:is-active={isMenuActive}>
 			<span />
 			<span />
 			<span />
@@ -31,9 +26,7 @@
 	<div id="navbarBasicExample" class="navbar-menu" class:is-active={isMenuActive}>
 		<div class="navbar-start">
 			<a class="navbar-item is-tab" class:is-active={route == 'resume'} href="/resume"> Resume </a>
-			<a class="navbar-item is-tab" class:is-active={route == 'projects'} href="/projects">
-				Projects
-			</a>
+			<a class="navbar-item is-tab" class:is-active={route == 'projects'} href="/projects"> Projects </a>
 			<!-- <a class="navbar-item" href="/contact"> Contact </a> -->
 		</div>
 	</div>
