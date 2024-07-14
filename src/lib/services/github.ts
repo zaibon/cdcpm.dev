@@ -2,15 +2,39 @@ import { env } from '$env/dynamic/private';
 import type { GithubRepo } from '$lib/types';
 
 const token = env.API_GITHUB_TOKEN;
+const nextPattern = /(?<=<)([\S]*)(?=>; rel="Next")/i;
 
-const listUserRepositories = async (limit: number = 100): Promise<GithubRepo[]> => {
-	const resp = await fetch(`https://api.github.com/users/zaibon/repos?per_page=${limit}&sort=pushed`, {
+const listUserRepositories = async (
+	limit: number = 100,
+	pageLink: string | null
+): Promise<{ repositories: GithubRepo[]; nextPage: string }> => {
+	if (pageLink == null) {
+		pageLink = `https://api.github.com/users/zaibon/repos?per_page=${limit}&sort=pushed`;
+	}
+
+	const resp = await fetch(pageLink, {
 		headers: {
 			Accept: 'application/json',
 			Authorization: `Bearer ${token}`
 		}
 	});
-	return await handleError(resp);
+
+	const repositories = await handleError(resp);
+
+	let pagesRemaining = true;
+	const linkHeader = resp.headers.get('link') ?? '';
+	pagesRemaining = linkHeader != '' && linkHeader.includes(`rel=\"next\"`);
+
+	let nextPage = '';
+	if (pagesRemaining) {
+		const match = linkHeader.match(nextPattern);
+		nextPage = match ? match[0] : '';
+	}
+
+	return {
+		repositories: repositories,
+		nextPage: nextPage
+	};
 };
 
 const getUserRepository = async (name: string): Promise<GithubRepo> => {

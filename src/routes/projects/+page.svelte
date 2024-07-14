@@ -8,4 +8,4 @@
 	<title>{data.headers.title} - List of projects</title>
 </svelte:head>
 
-<Projects count={21} />
+<Projects projects={data.projects ?? []} nextPage={data.nextPage ?? ''} />

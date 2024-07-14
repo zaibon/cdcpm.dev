@@ -1,19 +1,21 @@
 <script lang="ts">
+	import InfiniteScroll from 'svelte-infinite-scroll';
 	import type { Project } from '$lib/types';
-	import { onMount } from 'svelte';
-
 	import ProjectCard from './ProjectCard.svelte';
 	import { fade } from 'svelte/transition';
 
 	export let title: string = 'Projects';
-	export let count: number;
-	let projects: Project[] = [];
+	export let projects: Project[];
+	export let nextPage: string = '';
 
-	async function loadProjects() {
-		const response = await fetch(`/projects?count=${count}`);
-		projects = (await response.json()) as Project[];
+	async function fetchData() {
+		encodeURI;
+		const response = await fetch(`/projects?count=12&nextPage=${encodeURIComponent(nextPage)}`);
+		const { projects: newBatch, nextPage: np } = await response.json();
+		nextPage = np;
+
+		projects = [...projects, ...newBatch];
 	}
-	onMount(loadProjects);
 </script>
 
 <section class="section">
@@ -35,5 +37,6 @@
 			<i class="fab fa-github"></i>
 		</span>
 		<a href="https://github.com/zaibon" target="_blank">Explore all projects on Github</a>
+		<InfiniteScroll hasMore={nextPage != ''} threshold={100} window={true} on:loadMore={() => fetchData()} />
 	</button>
 </div>
