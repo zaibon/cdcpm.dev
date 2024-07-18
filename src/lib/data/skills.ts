@@ -22,6 +22,16 @@ export const skills: Skill[] = [
 		icon: 'fa-solid fa-database'
 	},
 	{
+		category: 'Databases',
+		name: 'BigQuery',
+		icon: 'fa-solid fa-database'
+	},
+	{
+		category: 'Databases',
+		name: 'redis',
+		icon: 'fa-solid fa-database'
+	},
+	{
 		category: 'Devops',
 		name: 'Terraform',
 		icon: 'fas fa-wrench'

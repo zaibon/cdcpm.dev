@@ -45,7 +45,12 @@ export const resume = {
 			job: 'Senior Software Engineer',
 			description: 'Work on the development of an intelligent code provenance platform for software security',
 			responsibilities: [
-				'Empowering developers and organizations to understand the context of how their code is created so they can be more productive and build safer software'
+				'Work on the development of an intelligent code provenance platform for software security',
+				'Maintenance and development of our infrastructure on Google Cloud',
+				'Design and implementation of REST based API to power our frontend SPA',
+				'Collaborate with data team to design and deploy a data platform',
+				'Ingestion of different source code management webhook event (GitHUb, Gitlab, Bitbucket)',
+				'Creation of a GitHub application to enrich pull requests',
 			]
 		},
 		{
@@ -58,7 +63,7 @@ export const resume = {
 				'Management of the team working on Flycs',
 				'Creation of a terrafrom landing zone to manage GCP infrastructure',
 				'Creation of a microservice based web application using Go and Vue.js',
-				'Automate the execution of Terraform using K8S and Cloud Build.',
+				'Automate the execution of Terraform using K8S and Cloud Build',
 				'Capture features and functional requirements from customers and translate them into technical requirements',
 				'Application Support and maintenance'
 			]
@@ -70,8 +75,8 @@ export const resume = {
 			job: 'Python software engineer',
 			description: '',
 			responsibilities: [
-				'Design and implement a Python SDK for data engineer to help them define data pipelines using Airflow and BigQuery.',
-				'Creation of CI/CD pipelines in Gitlab to manage automatic unit testing and creation of container images.'
+				'Design and implement a Python SDK for data engineer to help them define data pipelines using Airflow and BigQuery',
+				'Creation of CI/CD pipelines in Gitlab to manage automatic unit testing and creation of container images'
 			]
 		},
 		{
@@ -80,13 +85,13 @@ export const resume = {
 			end: 'November 2021',
 			job: 'Software engineer',
 			description:
-				'Research around how to decentralize the public cloud ecosystem. The result of this research led to the creation of the ThreefoldGrid.',
+				'Research around how to decentralize the public cloud ecosystem. The result of this research led to the creation of the ThreefoldGrid',
 			responsibilities: [
-				'Management of the team working on Zero-OS.',
+				'Management of the team working on Zero-OS',
 				'Conversion from an REST API driven architecture to a fully autonomous system',
 				'Implementation of package manager system',
-				'Implementation of the network manager which allows the creation of a fully meshed overlay network using Wireguard and Netlink Linux interface.',
-				'Integration of the K3S Kubernetes distribution and Containerd in Zero-OS.',
+				'Implementation of the network manager which allows the creation of a fully meshed overlay network using Wireguard and Netlink Linux interface',
+				'Integration of the K3S Kubernetes distribution and Containerd in Zero-OS',
 				'Creation of a distributed storage archive library',
 				'Design and implementation of a decentralized market system for IT capacity'
 			]
@@ -97,10 +102,10 @@ export const resume = {
 			end: 'July 2018',
 			job: 'Software engineer',
 			description:
-				'Architecture, design and implementation of Zero-OS, a lightweight, stateless, REST API driven Linux distribution for distributed cloud.',
+				'Architecture, design and implementation of Zero-OS, a lightweight, stateless, REST API driven Linux distribution for distributed cloud',
 			responsibilities: [
-				'Management of the team working on Zero-OS.',
-				'Contribution to Jumpscale, an automation framework for cloud system.'
+				'Management of the team working on Zero-OS',
+				'Contribution to Jumpscale, an automation framework for cloud system'
 			]
 		}
 	],
