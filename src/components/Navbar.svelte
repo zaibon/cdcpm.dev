@@ -16,10 +16,16 @@
 	<div class="navbar-brand">
 		<a class="navbar-item is-tab" class:is-active={route == ''} href="/"> About me </a>
 
-		<button class="navbar-burger" data-target="navbarBasicExample" on:click={toggleMenu} class:is-active={isMenuActive}>
-			<span />
-			<span />
-			<span />
+		<button
+			class="navbar-burger"
+			data-target="navbarBasicExample"
+			on:click={toggleMenu}
+			class:is-active={isMenuActive}
+			aria-label="Toggle navigation menu"
+		>
+			<span></span>
+			<span></span>
+			<span></span>
 		</button>
 	</div>
 

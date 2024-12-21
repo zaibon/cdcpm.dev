@@ -35,7 +35,7 @@
 			<div class="field">
 				<label class="label" for="message">Message</label>
 				<div class="control" id="message">
-					<textarea class="textarea" placeholder="Your message" bind:value={message} required />
+					<textarea class="textarea" placeholder="Your message" bind:value={message} required></textarea>
 				</div>
 			</div>
 			<div class="field">

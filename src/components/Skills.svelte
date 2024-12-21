@@ -21,7 +21,7 @@
 						<ul>
 							{#each items as item}
 								<li>
-									<span class="icon-text"><span class="icon"><i class={item.icon} /></span> {item.name}</span>
+									<span class="icon-text"><span class="icon"><i class={item.icon}></i></span> {item.name}</span>
 								</li>
 							{/each}
 						</ul>

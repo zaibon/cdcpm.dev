@@ -29,7 +29,7 @@
 			<span class="icon-text ml-5">
 				<span class="stars">{project.repo.stargazers_count}</span>
 				<span class="icon is-small">
-					<i class="fas fa-star" />
+					<i class="fas fa-star"></i>
 				</span>
 			</span>
 		</div>
