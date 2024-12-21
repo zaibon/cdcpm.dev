@@ -50,7 +50,7 @@
 
 				<p>
 					<span class="icon-text is-large">
-						<i class="fas fa-star" />
+						<i class="fas fa-star"></i>
 					</span>
 					<span>Star {data.repo?.stargazers_count}</span>
 				</p>
