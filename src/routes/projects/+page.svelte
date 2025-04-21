@@ -55,8 +55,11 @@
 </script>
 
 <svelte:head>
-	<title>Projects | John Doe</title>
-	<meta name="description" content="Portfolio of projects by John Doe, Software Engineer." />
+	<title>Projects | Christophe de Carvalho Pereira Martins</title>
+	<meta
+		name="description"
+		content="Portfolio of projects by Christophe de Carvalho Pereira Martins, Software Engineer."
+	/>
 </svelte:head>
 
 <div class="projects-page">
