@@ -1,5 +1,5 @@
 <script>
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	const projects = $state([
 		{
@@ -18,6 +18,14 @@
 			technologies: ['SvelteKit', 'GitHub API', 'web3-wallet', 'Peanut protocol'],
 			liveUrl: 'https://commitkudos.com/',
 			repoUrl: 'https://github.com/zaibon/commitkudos'
+		},
+		{
+			title: 'Zero-OS',
+			description:
+				'Zero-OS is a stateless and lightweight operating system designed for distributed and decentralized cloud infrastructure. It is optimized to run on bare-metal servers without the need for a traditional package manager or persistent storage. It provides a secure and minimal runtime environment with built-in support for containerization, networking, and remote management, making it well-suited for scalable, peer-to-peer computing grids.',
+			image: '/images/zero-os.png',
+			technologies: ['Go', 'Linux', 'Wireguard'],
+			repoUrl: 'https://github.com/threefoldtech/zos'
 		},
 		{
 			title: 'py-dmidecode',
@@ -51,7 +59,7 @@
 	);
 
 	// Get unique technologies from all projects
-	const allTechnologies = ['All', ...new Set(projects.flatMap((p) => p.technologies))];
+	const allTechnologies = ['All', ...new Set(projects.flatMap((p) => p.technologies))].sort();
 </script>
 
 <svelte:head>
