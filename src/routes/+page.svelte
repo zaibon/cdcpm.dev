@@ -41,7 +41,7 @@
 			</div>
 			<div class="image" in:fade={{ duration: 1000, delay: 300 }}>
 				<div class="profile-image">
-					<img src="/images/profile.jpg" alt="Christophe" />
+					<img src="/images/profile.webp" alt="Christophe" />
 				</div>
 			</div>
 		</div>
