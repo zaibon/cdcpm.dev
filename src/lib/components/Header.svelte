@@ -19,7 +19,7 @@
 	<div class="container">
 		<div class="logo">
 			<a href="/">
-				<span class="name">Christophe de Carvalho Pereira</span>
+				<span class="name">Christophe de Carvalho Pereira Martins</span>
 				<span class="title">Software Engineer</span>
 			</a>
 		</div>

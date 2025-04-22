@@ -6,7 +6,7 @@
 			title: 'Shortcut',
 			description:
 				'A URL shortening service that allows you to create concise, shareable links while providing analytics to track clicks and manage your links effectively.',
-			image: '/images/shortcut.png',
+			image: '/images/shortcut.webp',
 			technologies: ['Go', 'htmx', 'Templ', 'Postgres', 'fly.io'],
 			liveUrl: 'https://shct.io/'
 		},
@@ -14,7 +14,7 @@
 			title: 'CommitKudos',
 			description: `CommitKudos is a platform that leverages Web3 technology to reward and celebrate open-source contributions. It enables maintainers and users to recognize top contributors by distributing cryptocurrency rewards, providing tangible appreciation for their valuable efforts.
 			It was created during the ETH Lisbon hackathon in 2023 and won a price for the best use of the peanut protocol.`,
-			image: '/images/commitkudos.png',
+			image: '/images/commitkudos.webp',
 			technologies: ['SvelteKit', 'GitHub API', 'web3-wallet', 'Peanut protocol'],
 			liveUrl: 'https://commitkudos.com/',
 			repoUrl: 'https://github.com/zaibon/commitkudos'
@@ -23,7 +23,7 @@
 			title: 'Zero-OS',
 			description:
 				'Zero-OS is a stateless and lightweight operating system designed for distributed and decentralized cloud infrastructure. It is optimized to run on bare-metal servers without the need for a traditional package manager or persistent storage. It provides a secure and minimal runtime environment with built-in support for containerization, networking, and remote management, making it well-suited for scalable, peer-to-peer computing grids.',
-			image: '/images/zero-os.png',
+			image: '/images/zero-os.webp',
 			technologies: ['Go', 'Linux', 'Wireguard'],
 			repoUrl: 'https://github.com/threefoldtech/zos'
 		},
@@ -31,14 +31,14 @@
 			title: 'py-dmidecode',
 			description:
 				'A Python library designed to parse and extract meaningful information from the output of the dmidecode command, which provides detailed hardware information about a computer system.',
-			image: 'images/py-dmidecode.png',
+			image: 'images/py-dmidecode.webp',
 			technologies: ['Python'],
 			repoUrl: 'https://github.com/zaibon/py-dmidecode'
 		},
 		{
 			title: 'go-template',
 			description: 'An Opinionated Foundation for Your Go Microservices on Kubernetes',
-			image: 'images/go-template.png',
+			image: 'images/go-template.webp',
 			technologies: ['Go', 'Kubernetes', 'microservices'],
 			repoUrl: 'https://github.com/zaibon/go-template'
 		},
@@ -46,7 +46,7 @@
 			title: 'gitsumbot',
 			description:
 				'GitSumBot is a package that generates a summary of changes made to a codebase using commit messages',
-			image: 'images/gitsumbot.png',
+			image: 'images/gitsumbot.webp',
 			technologies: ['Go', 'ChatGPT API', 'Git', 'GitHub API', 'LLM'],
 			repoUrl: 'https://github.com/zaibon/gitsumbot'
 		}
