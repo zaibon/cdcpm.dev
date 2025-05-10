@@ -3,6 +3,14 @@
 
 	const projects = $state([
 		{
+			title: 'MCP server',
+			description:
+				'Experimentation around Model Context Protocol (MCP). It is a protocol that allows for the exchange of context between different AI models, enabling them to work together more effectively and share information in a structured manner.',
+			image: '/images/shortcut.webp',
+			technologies: ['Go', 'AI', 'MCP', 'LLM'],
+			liveUrl: 'https://cdcpm.dev/chat'
+		},
+		{
 			title: 'Shortcut',
 			description:
 				'A URL shortening service that allows you to create concise, shareable links while providing analytics to track clicks and manage your links effectively.',
