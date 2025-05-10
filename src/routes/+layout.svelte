@@ -5,9 +5,12 @@
 
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import ChatWidget from '$lib/components/ChatWidget.svelte'; // Import the ChatWidget
 
 	import { dev } from '$app/environment';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+	const { children } = $props();
 
 	injectAnalytics({ mode: dev ? 'development' : 'production' });
 
@@ -40,7 +43,7 @@
 	<Header {darkMode} {toggleDarkMode} currentPath={$page.url.pathname} />
 
 	<main transition:fade={{ duration: 200 }}>
-		<slot />
+		{@render children()}
 	</main>
 
 	<Footer />
