@@ -15,8 +15,8 @@ export type ConnectionStatus = 'disconnected' | 'connecting' | 'connected' | 'er
 export const messages: Writable<ChatMessage[]> = writable([]);
 export const connectionStatus: Writable<ConnectionStatus> = writable('disconnected');
 
-// const WEBSOCKET_URL = 'ws://localhost:4000/chat'; // Default Encore local dev URL
-const WEBSOCKET_URL = 'wss://staging-selfmpc-hf9i.encr.app/chat';
+const WEBSOCKET_URL = 'ws://localhost:4000/chat'; // Default Encore local dev URL
+// const WEBSOCKET_URL = 'wss://staging-selfmpc-hf9i.encr.app/chat';
 const RECONNECT_DELAY = 200; // Initial delay in ms for reconnection attempts
 const MAX_RECONNECT_DELAY = 30000; // Maximum delay in ms for reconnection attempts
 let reconnectAttempts = 0;
