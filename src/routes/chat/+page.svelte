@@ -30,8 +30,11 @@
 
 	// Auto-scroll to bottom when messages change
 	$effect(() => {
-		if (messages && chatContainer) {
+		if ($messages && chatContainer) {
 			scrollToBottom();
+			if ($messages[$messages.length - 1]?.sender === 'bot') {
+				isLoading = false;
+			}
 		}
 	});
 
@@ -44,6 +47,7 @@
 	}
 
 	function handleSubmit() {
+		isLoading = true;
 		if (inputMessage.trim()) {
 			sendMessage(inputMessage);
 			inputMessage = '';
