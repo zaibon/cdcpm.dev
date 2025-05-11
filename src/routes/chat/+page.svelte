@@ -1,21 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade, fly, slide } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import { messages, connectionStatus, connect, sendMessage, disconnect } from '$lib/services/chatSocket';
+	import { marked } from 'marked';
 
 	let inputMessage = $state('');
 	let isConnected = $derived($connectionStatus == 'connected');
 	let isLoading = $state(false);
 	let chatContainer: HTMLElement | null = null;
-	let isPanelOpen = $state(true); // Start with panel open
+	let isPanelOpen = $state(true); // Start with panel closed
 
 	// Simulate connection to LLM
 	onMount(() => {
-		// Close panel on mobile by default
-		if (window.innerWidth < 768) {
-			isPanelOpen = false;
-		}
-
 		connect();
 	});
 
@@ -57,11 +53,10 @@
 
 	// Example prompts
 	const examplePrompts = [
-		'Tell me about your experience with React',
-		'What projects have you worked on?',
-		'What are your technical skills?',
-		'How can I contact you?',
-		"What's your background in software development?"
+		'What projects have Christophe worked on?',
+		// 'What is his technical skills?',
+		'How can I contact Christophe?',
+		"What's christophe background in software development?"
 	];
 
 	// Function to use an example prompt
@@ -70,10 +65,8 @@
 		// Focus the textarea
 		document.querySelector('textarea')?.focus();
 
-		// Close panel on mobile after selecting a prompt
-		if (window.innerWidth < 768) {
-			isPanelOpen = false;
-		}
+		// Close panel after selecting a prompt
+		isPanelOpen = false;
 	}
 </script>
 
@@ -82,59 +75,7 @@
 	<meta name="description" content="Chat with Christophe's AI assistant" />
 </svelte:head>
 
-<div class="chat-page {isPanelOpen ? 'panel-open' : 'panel-closed'}">
-	<!-- Info Panel -->
-	<div class="info-panel" class:open={isPanelOpen}>
-		<div class="panel-content">
-			<h2>Chat Assistant</h2>
-
-			<div class="info-section">
-				<h3>About</h3>
-				<p>
-					This chat assistant can help you learn more about my background, skills, projects, and experience. Feel free
-					to ask any questions!
-				</p>
-			</div>
-
-			<div class="info-section">
-				<h3>How It Works</h3>
-				<p>
-					The assistant uses natural language processing to understand your questions and provide relevant information
-					about my professional profile.
-				</p>
-				<p>All conversations are private and not stored beyond this session.</p>
-			</div>
-
-			<div class="info-section">
-				<h3>Try These Examples</h3>
-				<div class="example-prompts">
-					{#each examplePrompts as prompt}
-						<button class="example-prompt" onclick={() => useExamplePrompt(prompt)}>
-							{prompt}
-						</button>
-					{/each}
-				</div>
-			</div>
-		</div>
-
-		<button class="panel-close-button" onclick={togglePanel} aria-label="Close info panel">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="24"
-				height="24"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-			>
-				<line x1="18" y1="6" x2="6" y2="18"></line>
-				<line x1="6" y1="6" x2="18" y2="18"></line>
-			</svg>
-		</button>
-	</div>
-
+<div class="chat-page {isPanelOpen ? 'panel-open' : ''}">
 	<!-- Main Chat Container -->
 	<div class="chat-container">
 		<div class="chat-header">
@@ -180,7 +121,11 @@
 					in:fly={{ y: 20, duration: 300 }}
 				>
 					<div class="message-content">
-						{message.text}
+						{#if message.sender === 'bot'}
+							{@html marked.parse(message.text)}
+						{:else}
+							{message.text}
+						{/if}
 					</div>
 				</div>
 			{/each}
@@ -228,7 +173,156 @@
 		</div>
 	</div>
 
-	<!-- Overlay for mobile -->
+	<!-- Info Panel (Overlay) -->
+	<div class="info-panel" class:open={isPanelOpen}>
+		<div class="panel-content">
+			<h2>The AI-Powered Professional Profile - My Personal MCP Server</h2>
+
+			<div class="info-section">
+				<h4>Bridging My Profile with the Future of Information Retrieval</h4>
+				<p>
+					In an era where Large Language Models (LLMs) are rapidly becoming a primary interface for information
+					discovery, I began to think about how professionals like myself could present their skills and experience in a
+					way that's not just human-readable, but also optimally structured for AI consumption. The static nature of
+					traditional resumes and online profiles, while valuable, often requires manual updates and can lack the
+					dynamic, queryable depth that modern AI systems are capable of leveraging.
+				</p>
+				<p>
+					My goal was to create a "living resume". A dynamic, always up-to-date, and interactive source of truth for my
+					professional journey. I envisioned a system where an AI could directly and reliably access detailed
+					information about my skills, projects, experiences, and even recent contributions, going beyond what's
+					typically available on a standard LinkedIn page or PDF resume. This led me to explore the <strong
+						>Model Context Protocol (MCP)</strong
+					>.
+				</p>
+				<h4>What is It? My Personal Professional MCP Server</h4>
+				<p>
+					This project is a custom-built MCP Server designed to provide comprehensive, structured, and real-time
+					information about my professional profile. Instead of an LLM relying solely on its potentially outdated
+					training data or general web scraping to "know" about me, it can (with the right setup) directly connect to my
+					personal MCP server.
+				</p>
+				<p>This server exposes various aspects of my career as "tools" and "resources" that an AI can utilize:</p>
+				<ul></ul>
+
+				<li><strong>Core Profile</strong>: Biography, contact information, professional summary, and availability.</li>
+				<li>
+					<strong>Work Experience</strong>: Detailed descriptions of my roles, responsibilities, and achievements.
+				</li>
+				<!-- <li>
+					<strong>Portfolio Projects</strong>: In-depth information about projects I've worked on, including
+					technologies used and links to repositories or live demos.
+				</li> -->
+				<li><strong>Skills</strong>: A categorized and detailed list of my technical and soft skills.</li>
+				<li><strong>Education & Certifications</strong>: My academic background and professional qualifications.</li>
+				<li>
+					<strong>GitHub Contributions</strong>: Real-time (or regularly updated) information about my recent pull
+					requests and open-source activity.
+				</li>
+				<!-- <li>
+					<strong>(Future Possibilities)</strong>: Blog posts, articles, talks, and even my current learning focus.
+				</li> -->
+				<p>
+					In this page, I've integrated a chat interface that allows visitors to "talk" to an LLM that is, in turn,
+					using my MCP server as its primary source of information about me. This offers an interactive way to explore
+					my profile in depth.
+					<br />
+					You can also directly connect to the MCP server using this address:
+				</p>
+				<p class="connection-info">
+					<code>https://staging-selfmpc-hf9i.encr.app/mcp/sse</code>
+				</p>
+
+				<div class="info-section">
+					<h3>Technology & Architecture</h3>
+					<p>
+						Building this system required a modern, scalable, and developer-friendly backend architecture. Here is a
+						high-level overview of the technology stack:
+					</p>
+
+					<p>
+						<strong>Backend Framework</strong>: <a href="https://encore.dev/">Encore.dev</a> with Go.<br />
+
+						I wanted to get familiar with Encore, this project was a good fit to experiment with it.<br />
+						Its strong opinions on infrastructure, automatic boilerplate generation, built-in observability, and typed service-to-service
+						calls allowed me to focus on the business logic of each data domain (profile, experience, projects, etc.) without
+						getting bogged down in complex infrastructure setup. Each aspect of my professional profile is managed by a distinct
+						Encore microservice.
+					</p>
+					<p>
+						<strong>MCP Server Implementation</strong>: Also built with Encore, acts as the dedicated MCP Server. It
+						receives requests from MCP clients, interprets them according to the Model Context Protocol, and then
+						communicates with the various backend Encore data services to fetch the required information. The responses
+						are then formatted according to the MCP specification.
+					</p>
+					<p>
+						<strong>MCP Host Implementation</strong>: To facilitate the interaction between an LLM and my MCP Server for
+						the portfolio chat, I've developed an MCP Host component. This host leverages the Go MCP library from
+						<a href="https://pkg.go.dev/github.com/mark3labs/mcp-go">github.com/mark3labs/mcp-go</a>, which provides the
+						necessary MCP Client functionality.<br />
+						This MCP Host is responsible for managing communication with both the LLM and my the MCP Server.
+					</p>
+					<p>
+						<strong> WebSocket Server (Chat Backend):</strong> A WebSocket server, also written in Go, provides the
+						real-time communication layer for the chat interface on this portfolio.<br />
+						When a user sends a message through the chat, the WebSocket server receives it and forwards the query to the
+						MCP Host.<br />
+						The MCP Host, using its MCP Client, interacts with an LLM. The LLM, in turn, can decide to use tools or resources
+						by making requests to my MCP Server via the MCP Host.<br />
+						The final response from the LLM (enriched with data from my MCP Server) is then relayed back through the WebSocket
+						server to the user's chat interface.
+					</p>
+
+					<p>
+						<strong>Data Storage</strong>: While some initial data is statically defined within the services for rapid
+						prototyping, the architecture is designed for PostgreSQL databases managed by Encore, allowing for dynamic
+						updates and scalability.
+					</p>
+
+					<p>
+						<strong>External API Integration</strong>: For features like listing GitHub contributions, the system
+						securely connects to the GitHub REST API.
+					</p>
+
+					<p>
+						<strong>Frontend (This page)</strong>: The interactive chat on my portfolio uses standard web technologies.
+						It establishes a WebSocket connection to the chat backend, sending user queries and displaying the LLM's
+						responses.
+					</p>
+				</div>
+			</div>
+
+			<div class="info-section">
+				<h3>Try These Examples</h3>
+				<div class="example-prompts">
+					{#each examplePrompts as prompt}
+						<button class="example-prompt" onclick={() => useExamplePrompt(prompt)}>
+							{prompt}
+						</button>
+					{/each}
+				</div>
+			</div>
+		</div>
+
+		<button class="panel-close-button" onclick={togglePanel} aria-label="Close info panel">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+	</div>
+
+	<!-- Overlay Background -->
 	{#if isPanelOpen}
 		<div class="panel-overlay" onclick={togglePanel}></div>
 	{/if}
@@ -236,118 +330,25 @@
 
 <style>
 	.chat-page {
-		display: flex;
-		height: calc(100vh - 140px); /* Adjust based on your header/footer height */
 		position: relative;
+		height: calc(100vh - 140px); /* Adjust based on your header/footer height */
 		max-width: 1200px;
 		margin: 0 auto;
-	}
-
-	/* Panel open/closed states */
-	.panel-closed .info-panel {
-		width: 0;
-		min-width: 0;
 		overflow: hidden;
-		border-right: none;
-	}
-
-	.panel-open .info-panel {
-		width: 300px;
-		min-width: 300px;
-	}
-
-	/* Info Panel */
-	.info-panel {
-		background-color: var(--bg);
-		border-right: 1px solid var(--border);
-		border-radius: 0.5rem 0 0 0.5rem;
-		overflow-y: auto;
-		transition: transform 0.3s ease;
-		position: relative;
-		z-index: 10;
-	}
-
-	.panel-content {
-		padding: 1.5rem;
-		width: 250px;
-	}
-
-	.info-panel h2 {
-		font-size: 1.5rem;
-		margin: 0 0 1.5rem 0;
-		color: var(--primary);
-	}
-
-	.info-section {
-		margin-bottom: 2rem;
-	}
-
-	.info-section h3 {
-		font-size: 1.125rem;
-		margin: 0 0 0.75rem 0;
-		color: var(--text);
-	}
-
-	.info-section p {
-		margin: 0 0 1rem 0;
-		line-height: 1.6;
-		color: var(--text-light);
-		font-size: 0.95rem;
-	}
-
-	.example-prompts {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.example-prompt {
-		text-align: left;
-		background-color: var(--bg-alt);
-		border: 1px solid var(--border);
-		border-radius: 0.375rem;
-		padding: 0.75rem 1rem;
-		font-size: 0.875rem;
-		color: var(--text);
-		cursor: pointer;
-		transition: all 0.2s;
-	}
-
-	.example-prompt:hover {
-		background-color: var(--primary);
-		color: white;
-		border-color: var(--primary);
-	}
-
-	.panel-close-button {
-		display: none;
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		background: none;
-		border: none;
-		color: var(--text-light);
-		cursor: pointer;
-		padding: 0.25rem;
 	}
 
 	/* Chat Container */
 	.chat-container {
-		flex: 1;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		background-color: var(--bg-alt);
 		border-radius: 0.5rem;
 		overflow: hidden;
 		border: 1px solid var(--border);
-		border-left: none;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-	}
-
-	.panel-open .chat-container {
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-		border-left: none;
+		position: relative;
+		z-index: 1;
 	}
 
 	.chat-header {
@@ -369,6 +370,7 @@
 		align-items: center;
 		justify-content: center;
 		transition: color 0.2s;
+		z-index: 5;
 	}
 
 	.panel-toggle:hover {
@@ -558,15 +560,155 @@
 		cursor: not-allowed;
 	}
 
+	.spinner {
+		width: 20px;
+		height: 20px;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		border-top: 2px solid white;
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	/* Info Panel (Overlay) */
+	.info-panel {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 75%;
+		max-width: 900px;
+		height: 100%;
+		background-color: var(--bg);
+		border-right: 1px solid var(--border);
+		overflow-y: auto;
+		z-index: 100;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.info-panel.open {
+		transform: translateX(0);
+	}
+
+	.panel-content {
+		padding: 2rem;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.info-panel h2 {
+		font-size: 1.75rem;
+		margin: 0 0 1.5rem 0;
+		color: var(--primary);
+	}
+
+	.info-section {
+		margin-bottom: 2.5rem;
+	}
+
+	.info-section h3 {
+		font-size: 1.25rem;
+		margin: 0 0 1rem 0;
+		color: var(--text);
+	}
+
+	.info-section p {
+		margin: 0 0 1rem 0;
+		line-height: 1.6;
+		color: var(--text-light);
+		font-size: 1rem;
+	}
+
+	.info-section li {
+		margin: 0 0 0.5rem 0;
+		line-height: 1.6;
+		color: var(--text-light);
+		font-size: 1rem;
+	}
+
+	.connection-info {
+		margin: 1rem 0;
+		padding: 0.5rem;
+		background-color: var(--bg-alt);
+		border-radius: 0.375rem;
+		font-size: 0.875rem;
+		color: var(--text-light);
+	}
+
+	.example-prompts {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.example-prompt {
+		text-align: left;
+		background-color: var(--bg-alt);
+		border: 1px solid var(--border);
+		border-radius: 0.375rem;
+		padding: 0.75rem 1rem;
+		font-size: 0.875rem;
+		color: var(--text);
+		cursor: pointer;
+		transition: all 0.2s;
+	}
+
+	.example-prompt:hover {
+		background-color: var(--primary);
+		color: white;
+		border-color: var(--primary);
+	}
+
+	.panel-close-button {
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		background: none;
+		border: none;
+		color: var(--text-light);
+		cursor: pointer;
+		padding: 0.5rem;
+		z-index: 101;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		transition: background-color 0.2s;
+	}
+
+	.panel-close-button:hover {
+		background-color: var(--bg-alt);
+		color: var(--primary);
+	}
+
+	/* Overlay Background */
 	.panel-overlay {
-		display: none;
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 5;
+		z-index: 90;
+		animation: fadeIn 0.3s ease;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 
 	/* Mobile Styles */
@@ -575,49 +717,16 @@
 			height: calc(100vh - 120px);
 		}
 
-		.panel-closed .info-panel,
-		.panel-open .info-panel {
-			width: 280px;
-			min-width: 280px;
-			position: fixed;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 280px;
-			transform: translateX(-100%);
-			z-index: 100;
-			border-radius: 0;
-			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		.info-panel {
+			width: 85%;
 		}
 
-		.panel-closed .info-panel {
-			transform: translateX(-100%);
-		}
-
-		.panel-open .info-panel {
-			transform: translateX(0);
-		}
-
-		.panel-close-button {
-			display: block;
-		}
-
-		.chat-container {
-			border-radius: 0.5rem;
-			border-left: 1px solid var(--border);
-		}
-
-		.panel-open .chat-container {
-			border-top-left-radius: 0.5rem;
-			border-bottom-left-radius: 0.5rem;
+		.panel-content {
+			padding: 1.5rem;
 		}
 
 		.message {
 			max-width: 90%;
-		}
-
-		.panel-overlay {
-			display: block;
 		}
 	}
 </style>
