@@ -5,10 +5,10 @@
 		{
 			title: 'MCP server',
 			description:
-				'Experimentation around Model Context Protocol (MCP). It is a protocol that allows for the exchange of context between different AI models, enabling them to work together more effectively and share information in a structured manner.',
-			image: '/images/shortcut.webp',
+				'Experimentation around Model Context Protocol (MCP). Creation of an MCP server that have access to my GitHub repositories and can answer to queries about them.',
+			image: '/images/chat.webp',
 			technologies: ['Go', 'AI', 'MCP', 'LLM'],
-			liveUrl: 'https://cdcpm.dev/chat'
+			liveUrl: '/chat'
 		},
 		{
 			title: 'Shortcut',
