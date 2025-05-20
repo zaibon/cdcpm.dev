@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount } from 'svelte'; // Modified import
 	import { fade, fly } from 'svelte/transition';
 	import { messages, connectionStatus, connect, sendMessage, disconnect } from '$lib/services/chatSocket';
 	import { marked } from 'marked';
@@ -8,6 +8,7 @@
 	let isConnected = $derived($connectionStatus == 'connected');
 	let isLoading = $state(false);
 	let chatContainer: HTMLElement | null = null;
+	let textarea: HTMLTextAreaElement | null = null;
 	let isPanelOpen = $state(true); // Start with panel closed
 
 	// Simulate connection to LLM
@@ -24,6 +25,7 @@
 		requestAnimationFrame(() => {
 			if (chatContainer) {
 				chatContainer.scrollTop = chatContainer.scrollHeight;
+				textarea?.focus();
 			}
 		});
 	}
@@ -46,13 +48,15 @@
 		}
 	}
 
-	function handleSubmit() {
+	async function handleSubmit() {
+		// Made function async
 		isLoading = true;
 		if (inputMessage.trim()) {
 			sendMessage(inputMessage);
 			inputMessage = '';
 			scrollToBottom();
 		}
+		console.log('focus', textarea);
 	}
 
 	// Example prompts
@@ -147,6 +151,7 @@
 
 		<div class="input-container">
 			<textarea
+				bind:this={textarea}
 				bind:value={inputMessage}
 				onkeydown={handleKeydown}
 				placeholder="Type your message here..."
