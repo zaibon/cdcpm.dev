@@ -3,6 +3,14 @@
 
 	const projects = $state([
 		{
+			title: 'MCP server',
+			description:
+				'Experimentation around Model Context Protocol (MCP). Creation of an MCP server that have access to my GitHub repositories and can answer to queries about them.',
+			image: '/images/chat.webp',
+			technologies: ['Go', 'AI', 'MCP', 'LLM'],
+			liveUrl: '/chat'
+		},
+		{
 			title: 'Shortcut',
 			description:
 				'A URL shortening service that allows you to create concise, shareable links while providing analytics to track clicks and manage your links effectively.',
