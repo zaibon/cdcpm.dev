@@ -16,7 +16,8 @@
 				'A URL shortening service that allows you to create concise, shareable links while providing analytics to track clicks and manage your links effectively.',
 			image: '/images/shortcut.webp',
 			technologies: ['Go', 'htmx', 'Templ', 'Postgres', 'fly.io'],
-			liveUrl: 'https://shct.io/'
+			liveUrl: 'https://shct.io/',
+			repoUrl: 'https://github.com/zaibon/shortcut'
 		},
 		{
 			title: 'CommitKudos',
