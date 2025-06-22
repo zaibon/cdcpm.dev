@@ -7,7 +7,7 @@
 			description:
 				'A modular, actor-based smart surveillance system in Go. SurveilSense captures video from multiple cameras, processes frames for detections, stores clips, and provides a modern web UI for management and browsing—all powered by the actor model for scalability and resilience.',
 			image: '/images/surveilsense.webp',
-			technologies: ['Go', 'HTMX', 'OpenCV', 'Actor pattern'],
+			technologies: ['Go', 'htmx', 'OpenCV', 'Actor pattern'],
 			repoUrl: 'https://github.com/zaibon/surveilsense'
 		},
 		{
@@ -56,7 +56,7 @@
 			title: 'go-template',
 			description: 'An Opinionated Foundation for Your Go Microservices on Kubernetes',
 			image: 'images/go-template.webp',
-			technologies: ['Go', 'Kubernetes', 'microservices'],
+			technologies: ['Go', 'Kubernetes', 'Microservices'],
 			repoUrl: 'https://github.com/zaibon/go-template'
 		},
 		{
