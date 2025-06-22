@@ -3,6 +3,14 @@
 
 	const projects = $state([
 		{
+			title: 'SurveilSense',
+			description:
+				'A modular, actor-based smart surveillance system in Go. SurveilSense captures video from multiple cameras, processes frames for detections, stores clips, and provides a modern web UI for management and browsing—all powered by the actor model for scalability and resilience.',
+			image: '/images/surveilsense.webp',
+			technologies: ['Go', 'HTMX', 'OpenCV', 'Actor pattern'],
+			repoUrl: 'https://github.com/zaibon/surveilsense'
+		},
+		{
 			title: 'MCP server',
 			description:
 				'Experimentation around Model Context Protocol (MCP). Creation of an MCP server that have access to my GitHub repositories and can answer to queries about them.',
