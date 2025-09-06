@@ -23,10 +23,7 @@ let reconnectAttempts = 0;
 let socket: WebSocket | null = null;
 
 function addMessage(text: string, sender: 'user' | 'bot') {
-	messages.update((msgs) => [
-		...msgs,
-		{ id: crypto.randomUUID(), text, sender, timestamp: new Date() }
-	]);
+	messages.update((msgs) => [...msgs, { id: crypto.randomUUID(), text, sender, timestamp: new Date() }]);
 }
 
 export function connect() {

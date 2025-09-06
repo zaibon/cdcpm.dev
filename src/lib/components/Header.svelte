@@ -32,7 +32,7 @@
 
 		<nav class:open={menuOpen}>
 			<ul>
-				{#each navItems as { path, label }}
+				{#each navItems as { path, label } (path)}
 					<li>
 						<a href={path} class:active={currentPath === path}>{label}</a>
 					</li>

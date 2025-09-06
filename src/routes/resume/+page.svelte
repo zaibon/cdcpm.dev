@@ -137,7 +137,7 @@
 	<section class="section">
 		<h2>Professional Experience</h2>
 		<div class="timeline">
-			{#each experiences as exp}
+			{#each experiences as exp (exp.title)}
 				<div class="timeline-item">
 					<div class="timeline-marker"></div>
 					<div class="timeline-content">
@@ -152,7 +152,7 @@
 							<div class="achievements">
 								<h4>Key Achievements:</h4>
 								<ul>
-									{#each exp.achievements as achievement}
+									{#each exp.achievements as achievement (achievement)}
 										<li>{achievement}</li>
 									{/each}
 								</ul>
@@ -160,7 +160,7 @@
 						{/if}
 
 						<div class="tags">
-							{#each exp.technologies as tech}
+							{#each exp.technologies as tech (tech)}
 								<span class="tag">{tech}</span>
 							{/each}
 						</div>
@@ -173,7 +173,7 @@
 	<section class="section">
 		<h2>Education</h2>
 		<div class="timeline">
-			{#each education as edu}
+			{#each education as edu (edu.degree)}
 				<div class="timeline-item">
 					<div class="timeline-marker"></div>
 					<div class="timeline-content">
@@ -188,7 +188,7 @@
 							<div class="achievements">
 								<h4>Achievements:</h4>
 								<ul>
-									{#each edu.achievements as achievement}
+									{#each edu.achievements as achievement (achievement)}
 										<li>{achievement}</li>
 									{/each}
 								</ul>
@@ -206,7 +206,7 @@
 			<div class="skills-column">
 				<h3>Technical Skills</h3>
 				<ul class="skills-list">
-					{#each skills.technical as skill}
+					{#each skills.technical as skill (skill)}
 						<li>{skill}</li>
 					{/each}
 				</ul>
@@ -214,7 +214,7 @@
 			<div class="skills-column">
 				<h3>Soft Skills</h3>
 				<ul class="skills-list">
-					{#each skills.soft as skill}
+					{#each skills.soft as skill (skill)}
 						<li>{skill}</li>
 					{/each}
 				</ul>

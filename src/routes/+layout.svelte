@@ -46,6 +46,7 @@
 		{@render children()}
 	</main>
 
+	<ChatWidget />
 	<Footer />
 </div>
 

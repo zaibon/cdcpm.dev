@@ -48,74 +48,6 @@
 	{/if}
 </section>
 
-<!-- <section class="skills">
-	<h2>What I Do</h2>
-	<div class="skills-grid">
-		<div class="skill-card">
-			<div class="icon">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<polyline points="16 18 22 12 16 6"></polyline>
-					<polyline points="8 6 2 12 8 18"></polyline>
-				</svg>
-			</div>
-			<h3>Web Development</h3>
-			<p>Building responsive and performant web applications with modern frameworks and best practices.</p>
-		</div>
-		<div class="skill-card">
-			<div class="icon">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-					<line x1="8" y1="21" x2="16" y2="21"></line>
-					<line x1="12" y1="17" x2="12" y2="21"></line>
-				</svg>
-			</div>
-			<h3>Frontend Development</h3>
-			<p>Creating intuitive user interfaces with attention to detail, accessibility, and user experience.</p>
-		</div>
-		<div class="skill-card">
-			<div class="icon">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-					<path d="M2 17l10 5 10-5"></path>
-					<path d="M2 12l10 5 10-5"></path>
-				</svg>
-			</div>
-			<h3>Backend Development</h3>
-			<p>Designing and implementing robust APIs, databases, and server-side applications.</p>
-		</div>
-	</div>
-</section> -->
-
 <style>
 	.hero {
 		min-height: calc(100vh - 200px);
@@ -207,59 +139,6 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-	}
-
-	.skills {
-		padding: 4rem 0;
-	}
-
-	.skills h2 {
-		text-align: center;
-		margin-bottom: 3rem;
-		font-size: 2rem;
-	}
-
-	.skills-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-	}
-
-	.skill-card {
-		background-color: var(--bg-alt);
-		border-radius: 0.5rem;
-		padding: 2rem;
-		transition:
-			transform 0.3s,
-			box-shadow 0.3s;
-		border: 1px solid var(--border);
-	}
-
-	.skill-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-	}
-
-	.icon {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 50px;
-		height: 50px;
-		background-color: var(--primary);
-		color: white;
-		border-radius: 50%;
-		margin-bottom: 1.5rem;
-	}
-
-	.skill-card h3 {
-		font-size: 1.25rem;
-		margin-bottom: 1rem;
-	}
-
-	.skill-card p {
-		font-size: 1rem;
-		margin-bottom: 0;
 	}
 
 	@media (max-width: 768px) {

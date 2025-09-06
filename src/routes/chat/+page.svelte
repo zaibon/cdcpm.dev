@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte'; // Modified import
 	import { fade, fly } from 'svelte/transition';
-	import { messages, connectionStatus, connect, sendMessage, disconnect } from '$lib/services/chatSocket';
+	import { messages, connectionStatus, connect, sendMessage } from '$lib/services/chatSocket';
 	import { marked } from 'marked';
 
 	let inputMessage = $state('');
@@ -123,13 +123,14 @@
 		</div>
 
 		<div class="messages-container" bind:this={chatContainer}>
-			{#each $messages as message, i (i)}
+			{#each $messages as message (message.id)}
 				<div
 					class="message {message.sender === 'user' ? 'user-message' : 'system-message'}"
 					in:fly={{ y: 20, duration: 300 }}
 				>
 					<div class="message-content">
 						{#if message.sender === 'bot'}
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							{@html marked.parse(message.text)}
 						{:else}
 							{message.text}
@@ -304,7 +305,7 @@
 			<div class="info-section">
 				<h3>Try These Examples</h3>
 				<div class="example-prompts">
-					{#each examplePrompts as prompt}
+					{#each examplePrompts as prompt (prompt)}
 						<button class="example-prompt" onclick={() => useExamplePrompt(prompt)}>
 							{prompt}
 						</button>
@@ -333,7 +334,17 @@
 
 	<!-- Overlay Background -->
 	{#if isPanelOpen}
-		<div class="panel-overlay" onclick={togglePanel}></div>
+		<div
+			class="panel-overlay"
+			onclick={togglePanel}
+			onkeydown={(e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					togglePanel();
+				}
+			}}
+			role="button"
+			tabindex="0"
+		></div>
 	{/if}
 </div>
 
@@ -567,24 +578,6 @@
 	.send-button:disabled {
 		opacity: 0.5;
 		cursor: not-allowed;
-	}
-
-	.spinner {
-		width: 20px;
-		height: 20px;
-		border: 2px solid rgba(255, 255, 255, 0.3);
-		border-top: 2px solid white;
-		border-radius: 50%;
-		animation: spin 1s linear infinite;
-	}
-
-	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
-		}
 	}
 
 	/* Info Panel (Overlay) */

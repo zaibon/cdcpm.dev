@@ -94,7 +94,7 @@
 	<div class="filters">
 		<div class="filter-label">Filter by technology:</div>
 		<div class="filter-options">
-			{#each allTechnologies as tech}
+			{#each allTechnologies as tech (tech)}
 				<button class="filter-btn {selectedTech === tech ? 'active' : ''}" onclick={() => (selectedTech = tech)}>
 					{tech}
 				</button>
@@ -103,7 +103,7 @@
 	</div>
 
 	<div class="projects-grid">
-		{#each filteredProjects as project, i}
+		{#each filteredProjects as project, i (project.title)}
 			<div class="project-card" in:fly={{ y: 20, duration: 300, delay: i * 100 }}>
 				<div class="project-image">
 					<img src={project.image || '/placeholder.svg'} alt={project.title} />
@@ -122,7 +122,7 @@
 					<h3>{project.title}</h3>
 					<p>{project.description}</p>
 					<div class="tech-tags">
-						{#each project.technologies as tech}
+						{#each project.technologies as tech (tech)}
 							<span class="tech-tag">{tech}</span>
 						{/each}
 					</div>

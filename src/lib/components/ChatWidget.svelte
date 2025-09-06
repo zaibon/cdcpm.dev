@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { messages, connectionStatus, connect, sendMessage, disconnect } from '../services/chatSocket';
+	import { messages, connectionStatus, connect, sendMessage } from '../services/chatSocket';
 
 	let userInput = $state('');
 	let isChatOpen = $state(false);
-	let chatBody: HTMLElement;
+	let chatBody = $state<HTMLElement | null>(null);
 
 	// Track if the AI is thinking
 	let isThinking = $state(false);
