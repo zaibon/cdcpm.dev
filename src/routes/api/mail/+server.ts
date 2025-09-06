@@ -7,7 +7,8 @@ export const POST = async ({ request }) => {
 	try {
 		await sendMail(email);
 		return json({ success: true }, { status: 200 });
-	} catch (error) {
+	} catch (e) {
+		const error = e as Error;
 		return json({ error: error.message || 'An error occurred' }, { status: 500 });
 	}
 };
