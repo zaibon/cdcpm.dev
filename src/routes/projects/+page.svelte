@@ -8,7 +8,7 @@
 				"Code generator for Go clients calling Restate services via the Go SDK ingress API. It inspects a service struct's exported methods using `go/packages` + `go/types` and produces a strongly-typed client with generic request helpers.",
 			image: '/images/restagen.svg',
 			technologies: ['Go'],
-			repoUrl: 'https://github.com/zaibon/retategen'
+			repoUrl: 'https://github.com/zaibon/restategen'
 		},
 		{
 			title: 'SurveilSense',
