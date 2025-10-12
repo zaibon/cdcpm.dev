@@ -3,6 +3,14 @@
 
 	const projects = $state([
 		{
+			title: 'restategen',
+			description:
+				"Code generator for Go clients calling Restate services via the Go SDK ingress API. It inspects a service struct's exported methods using `go/packages` + `go/types` and produces a strongly-typed client with generic request helpers.",
+			image: '/images/restagen.svg',
+			technologies: ['Go'],
+			repoUrl: 'https://github.com/zaibon/retategen'
+		},
+		{
 			title: 'SurveilSense',
 			description:
 				'A modular, actor-based smart surveillance system in Go. SurveilSense captures video from multiple cameras, processes frames for detections, stores clips, and provides a modern web UI for management and browsing—all powered by the actor model for scalability and resilience.',
