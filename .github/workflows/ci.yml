@@ -16,15 +16,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v6
-        with:
-          node-version: '20'
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         id: pnpm-install
         with:
           version: ${{ env.PNPM_VERSION }}
           run_install: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: pnpm
       - run: pnpm install
       - run: pnpm run build
 
@@ -33,15 +34,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v6
-        with:
-          node-version: '20'
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         id: pnpm-install
         with:
           version: ${{ env.PNPM_VERSION }}
           run_install: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: pnpm
       - run: pnpm install
       - run: pnpm run check
 
