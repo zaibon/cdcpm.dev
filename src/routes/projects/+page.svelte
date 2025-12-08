@@ -3,18 +3,18 @@
 
 	const projects = $state([
 		{
-			id: 'veritas',
-			title: 'Veritas',
+			id: 'parallax',
+			title: 'Parallax',
 			description:
 				'In an era of information overload and polarized media, finding the objective truth is increasingly difficult. \
                 Standard AI models often provide flattened summaries that gloss over nuances.\
-				Veritas takes a different approach. It doesn\'t just read the news; it interrogates it. \
-                By employing a "Council of Rivals"—distinct AI personas with opposing viewpoints—Veritas analyzes diverse sources \
+				Parallax takes a different approach. It doesn\'t just read the news; it interrogates it. \
+                By employing a "Council of Rivals"—distinct AI personas with opposing viewpoints, Parallax analyzes diverse sources \
                 to strip away bias and synthesize a balanced, context-rich report.',
-			image: '/images/veritas.webp',
+			image: '/images/parallax.webp',
 			technologies: ['Go', 'htmx', 'AI', 'LLM'],
-			repoUrl: 'https://github.com/zaibon/veritas',
-			liveUrl: 'https://veritas-production-3dda.up.railway.app/'
+			repoUrl: 'https://github.com/zaibon/parallax',
+			liveUrl: 'https://parallaxe.dev/'
 		},
 		{
 			title: 'restategen',
