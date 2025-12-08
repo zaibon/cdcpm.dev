@@ -3,6 +3,20 @@
 
 	const projects = $state([
 		{
+			id: 'veritas',
+			title: 'Veritas',
+			description:
+				'In an era of information overload and polarized media, finding the objective truth is increasingly difficult. \
+                Standard AI models often provide flattened summaries that gloss over nuances.\
+				Veritas takes a different approach. It doesn\'t just read the news; it interrogates it. \
+                By employing a "Council of Rivals"—distinct AI personas with opposing viewpoints—Veritas analyzes diverse sources \
+                to strip away bias and synthesize a balanced, context-rich report.',
+			image: '/images/veritas.webp',
+			technologies: ['Go', 'htmx', 'AI', 'LLM'],
+			repoUrl: 'https://github.com/zaibon/veritas',
+			liveUrl: 'https://veritas-production-3dda.up.railway.app/'
+		},
+		{
 			title: 'restategen',
 			description:
 				"Code generator for Go clients calling Restate services via the Go SDK ingress API. It inspects a service struct's exported methods using `go/packages` + `go/types` and produces a strongly-typed client with generic request helpers.",
