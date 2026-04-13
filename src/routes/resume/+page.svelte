@@ -1,6 +1,20 @@
 <script>
 	const experiences = $state([
 		{
+			title: 'Parser (Consulting for Lunar)',
+			company: 'Senior Backend Engineer',
+			period: 'Nov 2025 - Present',
+			description: 'Responsible for the International Transfer domain at Lunar, a leading Nordic digital bank.',
+			achievements: [
+				'Designing and implementing high-availability backend services using Go',
+				'Applying Domain Driven Design (DDD) principles to model complex financial domains and international payment flows.',
+				'Utilizing Event Sourcing patterns to ensure robust audit trails and data consistency across banking operations.',
+				'Managing complex data structures and persistence layers with Postgres.',
+				'Collaborating within a consultancy framework to deliver high-quality, scalable solutions for the digital banking ecosystem.'
+			],
+			technologies: ['Go', 'PostgresSQL', 'Event sourcing', 'Domain Driven Design', 'Kubernetes']
+		},
+		{
 			title: 'Archipelo',
 			company: 'Senior Software Engineer',
 			period: 'Oct 2022 - Present',
@@ -13,7 +27,7 @@
 				'Ingestion of different source code management webhook event (GitHub, Gitlab, Bitbucket)',
 				'Creation of a GitHub application to enrich pull requests'
 			],
-			technologies: ['Go', 'Kotlin', 'Svelte', 'postgres', 'GCP', 'Kubernetes', 'GitHub API']
+			technologies: ['Go', 'Kotlin', 'Svelte', 'PostgresSQL', 'GCP', 'Kubernetes', 'GitHub API']
 		},
 		{
 			title: 'Technical Lead',
