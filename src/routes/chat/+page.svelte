@@ -275,8 +275,8 @@
 					<p>
 						<strong> WebSocket Server (Chat Backend):</strong> A WebSocket server, also written in Go, provides the
 						real-time communication layer for the chat interface on this portfolio.<br />
-						When a user sends a message through the chat, the WebSocket server receives it and forwards the query to the
-						MCP Host.<br />
+						When a user sends a message through the chat, the WebSocket server receives it and forwards the query to the MCP
+						Host.<br />
 						The MCP Host, using its MCP Client, interacts with an LLM. The LLM, in turn, can decide to use tools or resources
 						by making requests to my MCP Server via the MCP Host.<br />
 						The final response from the LLM (enriched with data from my MCP Server) is then relayed back through the WebSocket

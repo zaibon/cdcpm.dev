@@ -8,17 +8,14 @@ export interface Email {
 	message: string;
 }
 
-
+const port = parseInt(env.SMTP_PORT ?? '465');
 const transporter = nodemailer.createTransport({
 	host: env.SMTP_HOST,
-	port: parseInt(env.SMTP_PORT ?? '465'),
-	secure: true,
+	port: port,
+	secure: port === 465,
 	auth: {
 		user: env.SMTP_USER,
 		pass: env.SMTP_PASSWORD
-	},
-	tls: {
-		ciphers: 'SSLv3'
 	}
 });
 
