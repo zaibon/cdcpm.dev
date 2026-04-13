@@ -305,7 +305,7 @@
 			<div class="info-section">
 				<h3>Try These Examples</h3>
 				<div class="example-prompts">
-					{#each examplePrompts as prompt (prompt)}
+					{#each examplePrompts as prompt, i (i)}
 						<button class="example-prompt" onclick={() => useExamplePrompt(prompt)}>
 							{prompt}
 						</button>
