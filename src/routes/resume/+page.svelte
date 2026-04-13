@@ -137,7 +137,7 @@
 	<section class="section">
 		<h2>Professional Experience</h2>
 		<div class="timeline">
-			{#each experiences as exp (exp.title)}
+			{#each experiences as exp, i (i)}
 				<div class="timeline-item">
 					<div class="timeline-marker"></div>
 					<div class="timeline-content">
@@ -152,7 +152,7 @@
 							<div class="achievements">
 								<h4>Key Achievements:</h4>
 								<ul>
-									{#each exp.achievements as achievement (achievement)}
+									{#each exp.achievements as achievement, j (j)}
 										<li>{achievement}</li>
 									{/each}
 								</ul>
@@ -173,7 +173,7 @@
 	<section class="section">
 		<h2>Education</h2>
 		<div class="timeline">
-			{#each education as edu (edu.degree)}
+			{#each education as edu, i (i)}
 				<div class="timeline-item">
 					<div class="timeline-marker"></div>
 					<div class="timeline-content">
@@ -188,7 +188,7 @@
 							<div class="achievements">
 								<h4>Achievements:</h4>
 								<ul>
-									{#each edu.achievements as achievement (achievement)}
+									{#each edu.achievements as achievement, j (j)}
 										<li>{achievement}</li>
 									{/each}
 								</ul>

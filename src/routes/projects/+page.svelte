@@ -125,7 +125,7 @@
 	</div>
 
 	<div class="projects-grid">
-		{#each filteredProjects as project, i (project.title)}
+		{#each filteredProjects as project, i (i)}
 			<div class="project-card" in:fly={{ y: 20, duration: 300, delay: i * 100 }}>
 				<div class="project-image">
 					<img src={project.image || '/placeholder.svg'} alt={project.title} />
@@ -144,7 +144,7 @@
 					<h3>{project.title}</h3>
 					<p>{project.description}</p>
 					<div class="tech-tags">
-						{#each project.technologies as tech (tech)}
+						{#each project.technologies as tech, j (j)}
 							<span class="tech-tag">{tech}</span>
 						{/each}
 					</div>
